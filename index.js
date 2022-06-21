@@ -7,7 +7,7 @@ const client = new Discord.Client({
     intents: [
         "GUILDS",
         "GUILD_MESSAGES",
-        "GUILD_MEMBERS"
+        "GUILD_MEMBERS",
     ]
 })
 
@@ -26,7 +26,7 @@ const welcomeChannelId = "984528945020030996"
 client.on("guildMemberAdd", async (member) => {
     const img = await generateImage(member)
     member.guild.channels.cache.get(welcomeChannelId).send({
-        content: `<@${member.id}> Welcome to the server!`,
+        content: `<@${member.id}> Welcome to the server! #verify to get full access to the server`,
         files: [img]
     })
 })
